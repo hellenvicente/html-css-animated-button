@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #000; /* Fundo escuro destaca o brilho */
+}
+
+.btn{
+    position: relative;
+    height: 70px;
+    width: 200px;
+    border-radius: 50px;
+    overflow: hidden; /* Esconde o excesso do gradiente giratório */
+}
+
+.btn a{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 65px;
+    width: 195px;
+    background: #1b1b1b;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    z-index: 1; /* Fica acima da animação */
+}
+
+.btn a span{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Camada da Borda Colorida */
+.btn::before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(360deg, transparent, #00d2ff, #3a7bd5, #00d2ff);
+    /* A animação só ocorre no hover */
+    transition: 0.5s;
+}
+
+.btn:hover::before{
+    animation: animate 1.5s linear infinite;
+}
+
+@keyframes animate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
